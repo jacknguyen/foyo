@@ -4,9 +4,8 @@
 <ul>
   <% @instagram_image.comments.data.each do |comment| %>
     <li>
-      <%= comment.from.username %>
+      <%= link_to comment.from.username, "http://instagram.com/#{comment.from.username}" %>
       <%= link_to "Follow", follow_path(comment.from.id) %>
-      <%= link_to "Unfollow", unfollow_path(comment.from.id) %>
     </li>
   <% end %>
 </ul>
@@ -15,9 +14,8 @@
 <ul>
   <% Instagram.media_likes(@instagram_image.id).each do |like| %>
     <li>
-      <%= like.username %>
+      <%= link_to like.username, "http://instagram.com/#{like.username}" %>
       <%= link_to "Follow", follow_path(like.id) %>
-      <%= link_to "Unfollow", unfollow_path(like.id) %>
     </li>
   <% end %>
 </ul>
