@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '/oauth/callback', to: 'instafollows#callback', via: [:all]
   match '/follow/:id', to: 'instafollows#follow', via: [:get], as: 'follow'
   match '/unfollow/:id', to: 'instafollows#unfollow', via: [:get], as: 'unfollow'
-  match '/search', to: 'instafollows#search', via: [:post]
+  match '/search', to: 'instafollows#show', via: [:post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

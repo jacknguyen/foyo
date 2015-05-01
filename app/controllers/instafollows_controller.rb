@@ -9,7 +9,8 @@ class InstafollowsController < ApplicationController
   end
 
   def show
-
+    @image_id = Picture.image_id(params[:url])
+    @instagram_image = Instagram.media_item(@image_id)
   end
 
   # sends user to authorize the app and get back the access token
