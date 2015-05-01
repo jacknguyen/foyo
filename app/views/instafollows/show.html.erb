@@ -1,0 +1,23 @@
+<%= image_tag @instagram_image.images.standard_resolution.url %>
+
+<h2>Comments from:</h2>
+<ul>
+  <% @instagram_image.comments.data.each do |comment| %>
+    <li>
+      <%= comment.from.username %>
+      <%= link_to "Follow", follow_path(comment.from.id) %>
+      <%= link_to "Unfollow", unfollow_path(comment.from.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Likes from:</h2>
+<ul>
+  <% Instagram.media_likes(@instagram_image.id).each do |like| %>
+    <li>
+      <%= like.username %>
+      <%= link_to "Follow", follow_path(like.id) %>
+      <%= link_to "Unfollow", unfollow_path(like.id) %>
+    </li>
+  <% end %>
+</ul>
